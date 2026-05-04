@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>🎵 音乐 · Music | Bilingual Music Vocabulary</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f5f0fa;
+            font-family: 'Segoe UI', 'Noto Sans', 'Helvetica Neue', system-ui, sans-serif;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #1a1025;
+        }
+        .main-container {
+            max-width: 1400px;
+            width: 100%;
+            background: rgba(255, 252, 255, 0.9);
+            backdrop-filter: blur(18px);
+            border-radius: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(60, 20, 80, 0.2);
+            padding: 2rem 2rem 3rem;
+            border: 1px solid rgba(150, 120, 180, 0.4);
+        }
+        h1 {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 2.5rem; font-weight: 700; color: #4a2080;
+            margin-bottom: 0.3rem; flex-wrap: wrap;
+        }
+        h1 span {
+            background: #ede0f5; padding: 0.2rem 1.2rem;
+            border-radius: 4rem; font-size: 1.8rem; color: #6b3fa0;
+        }
+        .subtitle {
+            font-size: 1.1rem; color: #6b5080; margin-bottom: 1.5rem;
+            border-left: 6px solid #9b6fc0; padding-left: 1.2rem;
+            font-weight: 500; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .image-slot {
+            background: #f8f4fc; border: 2px dashed #9b6fc0;
+            border-radius: 2.5rem; padding: 1rem 2rem; margin: 0.5rem 0 1.5rem;
+            text-align: center; color: #4a2080; font-weight: 500; font-size: 1rem;
+            min-height: 60px; display: flex; align-items: center; justify-content: center;
+        }
+        .image-slot img {
+            max-width: 100%; max-height: 350px; border-radius: 1.5rem; object-fit: contain;
+        }
+        .category-nav {
+            display: flex; flex-wrap: wrap; gap: 0.35rem;
+            margin: 1.2rem 0; background: #f8f4fc; padding: 0.5rem;
+            border-radius: 3rem; justify-content: center;
+        }
+        .cat-btn {
+            background: white; border: 1px solid #d0c0e0;
+            padding: 0.5rem 0.95rem; border-radius: 2.5rem;
+            font-weight: 600; font-size: 0.75rem; color: #4a2080;
+            cursor: pointer; transition: all 0.2s;
+            display: flex; align-items: center; gap: 0.2rem;
+        }
+        .cat-btn.active { background: #7b3fb0; color: white; border-color: #5a2080; }
+        .cat-btn:hover { background: #ede0f5; }
+        .cat-btn.active:hover { background: #6b30a0; }
+        .note-text {
+            font-size: 0.8rem; color: #c08030; font-style: italic; margin-top: 0.1rem;
+            background: #fff8e8; padding: 0.15rem 0.5rem; border-radius: 8px; display: inline-block;
+        }
+        .table-wrapper {
+            overflow-x: auto; border-radius: 2rem;
+            background: #ffffffdd; border: 1px solid #d0c0e0; margin: 1.5rem 0 2rem;
+        }
+        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        th { background: #5a2080; color: white; padding: 0.8rem 1rem; text-align: left; font-size: 0.95rem; }
+        td {
+            padding: 0.7rem 1rem; border-bottom: 1px solid #e0d0f0;
+            background-color: #ffffffc9; vertical-align: top;
+        }
+        .chinese-cell { font-size: 1.4rem; font-weight: 700; color: #3a1060; }
+        .pinyin-sm { font-size: 0.8rem; font-weight: 400; color: #7b5fa0; display: block; font-style: italic; }
+        .english-name { font-weight: 600; color: #4a2080; font-size: 0.95rem; }
+        .example-text { font-size: 0.85rem; color: #7b5fa0; font-style: italic; margin-top: 0.15rem; }
+        .puzzle-box { display: flex; flex-direction: column; gap: 0.3rem; }
+        .dissect-line { display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem 0.5rem; }
+        .char-piece {
+            background: #f0e0ff; padding: 0.1rem 0.5rem; border-radius: 10px;
+            font-weight: 700; color: #4a2080; font-size: 0.9rem;
+        }
+        .plus-sign { font-weight: bold; color: #9b6fc0; }
+        .arrow-sign { color: #6b5080; margin: 0 0.15rem; font-weight: bold; }
+        .result-word {
+            background: #d4e7c5; padding: 0.1rem 0.7rem; border-radius: 12px;
+            font-weight: 700; color: #2d4a1b;
+        }
+        .en-line { color: #4a3060; font-size: 0.85rem; }
+        .section-title { font-size: 1.6rem; font-weight: 700; margin: 2rem 0 0.8rem; color: #4a2080; }
+        hr { border: 1px dashed #c0a8d4; margin: 1.5rem 0 0.8rem; }
+        footer { margin-top: 1.5rem; text-align: center; color: #6b5080; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <h1>🎵 音乐 Music <span>表演·乐器·理论</span></h1>
+    <div class="subtitle">🧩 中英对照 · 汉字拆解 · 全年龄段 · 220+ 词汇</div>
+
+    <div class="image-slot" id="categoryImageSlot">
+        <span>🖼️ <span id="imageLabel">全部音乐 / All Music</span> — 图片位置 (PNG)</span>
+    </div>
+
+    <div class="category-nav" id="categoryNav">
+        <button class="cat-btn active" data-category="all">🎵 全部 / All</button>
+        <button class="cat-btn" data-category="performing">🎭 表演艺术 / Performing Arts</button>
+        <button class="cat-btn" data-category="crosstalk">🎙️ 相声 / Crosstalk</button>
+        <button class="cat-btn" data-category="theory">🎼 音乐理论 / Music Theory</button>
+        <button class="cat-btn" data-category="instruments-chinese">🪕 中国乐器 / Chinese Instruments</button>
+        <button class="cat-btn" data-category="instruments-western">🎻 西洋乐器 / Western Instruments</button>
+        <button class="cat-btn" data-category="vocal">🎤 声乐 / Vocal Music</button>
+        <button class="cat-btn" data-category="genres">🎧 音乐类型 / Music Genres</button>
+        <button class="cat-btn" data-category="professionals">👥 音乐人 / Music Professionals</button>
+        <button class="cat-btn" data-category="stage">🎬 表演舞台 / Performance & Stage</button>
+        <button class="cat-btn" data-category="industry">💿 音乐产业 / Music Industry</button>
+        <button class="cat-btn" data-category="composition">📝 音乐创作 / Composition</button>
+    </div>
+
+    <div id="dynamicTableContainer"></div>
+
+    <hr>
+    <div class="section-title">🧩 汉字拆解 · Character Puzzle Gallery</div>
+    <div id="puzzleGallery" style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.8rem;"></div>
+
+    <footer>🎵 双语音乐词汇 Bilingual Music Vocabulary · 相声 · 古琴 · 五线谱 · 交响乐 · 适合所有年龄 for all ages</footer>
+</div>
+
+<script>
+(function() {
+    var cnMap = {
+        "相":"相互","声":"声音","单":"单个","口":"嘴巴","对":"成对","群":"群体","活":"活动",
+        "逗":"逗笑","哏":"滑稽","捧":"托举","说":"说话","学":"模仿","唱":"歌唱",
+        "贯":"连贯","垫":"铺垫","包":"包裹","袱":"包袱","曲":"曲调","艺":"艺术",
+        "京":"北京","韵":"韵味","大":"大型","鼓":"鼓乐","快":"快速","板":"竹板",
+        "书":"说书","太":"非常","平":"平和","歌":"歌曲","词":"词语","评":"评论",
+        "小":"小型","品":"作品","二":"两个","人":"人物","转":"转动","双":"成对",
+        "簧":"簧片","五":"五个","线":"线条","谱":"乐谱","高":"高音","低":"低音",
+        "音":"声音","符":"符号","全":"完整","分":"分割","节":"节拍","奏":"演奏",
+        "旋":"旋转","律":"规律","和":"和谐","阶":"阶梯","调":"调整","号":"符号",
+        "升":"升高","降":"降低","拍":"节拍","弦":"琴弦","钢":"钢铁","琴":"琴类",
+        "提":"提起","吉":"吉祥","他":"其他","贝":"宝贝","斯":"此","长":"长度",
+        "笛":"笛子","簧":"簧片","管":"管状","萨":"萨氏","克":"克服","号":"号角",
+        "鼓":"鼓乐","胡":"胡人","筝":"筝琴","琵":"琵琶","琶":"琵琶","弹":"弹拨",
+        "女":"女性","男":"男性","假":"非真","真":"真实","合":"一起","独":"单独",
+        "重":"重复","副":"辅助","颤":"颤抖","古":"古代","典":"经典","流":"流行",
+        "行":"行走","爵":"爵位","士":"人士","民":"民间","摇":"摇摆","滚":"滚动",
+        "金":"金属","属":"类别","电":"电子","子":"后缀","嘻":"嬉笑","哈":"笑声",
+        "蓝":"蓝色","拉":"拉丁","丁":"人丁","乡":"乡村","村":"村庄","谣":"歌谣",
+        "轻":"轻松","家":"专家","作":"创作","指":"指导","挥":"挥舞","手":"能手",
+        "队":"队伍","奏":"演奏","者":"的人","伴":"陪伴","制":"制作","录":"记录",
+        "演":"表演","出":"出来","排":"排列","练":"练习","彩":"精彩","会":"集会",
+        "舞":"舞蹈","台":"平台","灯":"灯光","观":"观看","众":"众人","鼓":"鼓舞",
+        "掌":"手掌","返":"返回","场":"场地","开":"开始","专":"专门","辑":"编辑",
+        "行":"发行","榜":"榜单","白":"白色","金":"金色","片":"片状","发":"发布",
+        "磁":"磁性","带":"带状","光":"光线","盘":"盘状","版":"版本","权":"权利",
+        "经":"经营","纪":"纪律","粉":"粉丝","丝":"丝线","阿":"前缀","卡":"卡片",
+        "贝":"贝壳","拉":"拉动","编":"编排","曲":"乐曲","填":"填写","录":"录制",
+        "混":"混合","母":"母带","合":"合唱","声":"声音","部":"部分","奏":"奏鸣",
+        "交":"交响","响":"响声","弦":"弦乐","管":"管乐","打":"打击","击":"敲击",
+        "弹":"弹拨","吹":"吹奏","拉":"拉弦","昆":"昆山","剧":"戏剧","越":"越地",
+        "黄梅":"黄梅","戏":"戏曲","秦":"秦地","腔":"腔调","皮":"皮革","影":"影子",
+        "木偶":"木偶","杂":"杂技","技":"技巧","魔":"魔术","术":"技术","变":"变化",
+        "脸":"脸面","谱":"图案","马":"马匹","头":"头部","碗":"碗状","三":"三个",
+        "弦":"弦线","阮":"阮咸","月":"月亮","柳":"柳树","筝":"筝","瑟":"瑟",
+        "箫":"箫管","排":"排列","笙":"笙管","埙":"埙器","唢":"唢呐","呐":"唢呐",
+        "编":"编排","钟":"钟体","磬":"磬石","锣":"锣体","钹":"钹片","梆":"梆子",
+        "扬":"扬起","琴":"琴类","箜":"箜篌","篌":"箜篌","筑":"筑器","风":"风箱",
+        "键":"键盘","盘":"盘面","竖":"竖立","簧":"簧片","木":"木材","铜":"铜质",
+        "定":"定音","音":"声音","架":"架子","铃":"铃声","三角":"三角","响":"响声",
+        "沙":"沙粒","锤":"锤子","碰":"碰撞","钟":"钟体","乐":"音乐","队":"队伍",
+        "协":"协作","鸣":"鸣响","即":"即刻","兴":"兴起","填":"填充","词":"词语"
+    };
+
+    var dataset = [
+        // ========== 🎭 表演艺术 / Performing Arts ==========
+        {cat:"performing",ch:"曲艺",py:"qǔyì",en:"Chinese folk arts",def:"中国传统说唱表演艺术的总称",defEn:"umbrella term for traditional Chinese folk performance arts",ex:"曲艺包括相声、评书等多种形式。Folk arts include crosstalk, storytelling, and more.",di:[{c:"曲",e:"tune"},{c:"艺",e:"art"}]},
+        {cat:"performing",ch:"说唱",py:"shuōchàng",en:"rap / storytelling",def:"现代指嘻哈音乐；传统指叙事性演唱",defEn:"modern: rap/hip-hop; traditional: narrative singing",ex:"他很喜欢听说唱音乐。He loves listening to rap music.",di:[{c:"说",e:"speak"},{c:"唱",e:"sing"}]},
+        {cat:"performing",ch:"京韵大鼓",py:"jīngyùn dàgǔ",en:"Beijing drum song",def:"北方传统鼓曲艺术，一人击鼓说唱",defEn:"traditional northern drum ballad art",ex:"京韵大鼓是北京的传统艺术。Beijing drum song is traditional.",di:[{c:"京韵",e:"Beijing style"},{c:"大鼓",e:"big drum"}]},
+        {cat:"performing",ch:"快板儿书",py:"kuàibǎnr shū",en:"clapper talk",def:"手持竹板击节说唱的曲艺形式",defEn:"rhythmic storytelling with bamboo clappers",ex:"他表演了一段快板儿书。He performed a clapper talk.",di:[{c:"快板",e:"clappers"},{c:"书",e:"story"}]},
+        {cat:"performing",ch:"太平歌词",py:"tàipíng gēcí",en:"Taiping lyrics",def:"传统曲艺中的一种歌唱形式",defEn:"traditional singing form within folk arts",ex:"相声里常穿插太平歌词。Crosstalk often includes Taiping lyrics.",di:[{c:"太平",e:"peace"},{c:"歌词",e:"lyrics"}]},
+        {cat:"performing",ch:"评书",py:"píngshū",en:"storytelling / pingshu",def:"一人讲述长篇故事的传统艺术",defEn:"traditional art of one person telling long stories",ex:"评书艺术家讲得绘声绘色。Pingshu artists tell stories vividly.",di:[{c:"评",e:"comment"},{c:"书",e:"story"}]},
+        {cat:"performing",ch:"小品",py:"xiǎopǐn",en:"comedy sketch",def:"短小的喜剧表演",defEn:"short comedic performance",ex:"春晚小品很受欢迎。Spring Festival sketches are popular.",di:[{c:"小",e:"small"},{c:"品",e:"piece"}]},
+        {cat:"performing",ch:"二人转",py:"èrrénzhuàn",en:"errenzhuan",def:"东北歌舞表演，两人对唱对舞",defEn:"Northeastern song-and-dance duo",ex:"二人转是东北的传统艺术。Errenzhuan is from the Northeast.",di:[{c:"二人",e:"two people"},{c:"转",e:"turn"}]},
+        {cat:"performing",ch:"双簧",py:"shuānghuáng",en:"two-man act",def:"一人在前表演，另一人在后说话",defEn:"one acts in front while another speaks behind",ex:"双簧表演很有趣。The two-man act is very funny.",di:[{c:"双",e:"double"},{c:"簧",e:"reed"}]},
+        {cat:"performing",ch:"哑剧",py:"yǎjù",en:"mime / pantomime",def:"不用语言，只用动作和表情表演",defEn:"performance using only gestures and expressions",ex:"哑剧演员的动作非常生动。The mime is very expressive.",di:[{c:"哑",e:"mute"},{c:"剧",e:"drama"}]},
+        {cat:"performing",ch:"杂技",py:"zájì",en:"acrobatics",def:"展示身体技巧的表演艺术",defEn:"performance art showcasing physical skills",ex:"杂技演员的训练非常刻苦。Acrobats train very hard.",di:[{c:"杂",e:"varied"},{c:"技",e:"skill"}]},
+        {cat:"performing",ch:"魔术",py:"móshù",en:"magic",def:"借助手法和道具制造幻觉的表演艺术",defEn:"performance art creating illusions with sleight of hand and props",ex:"魔术师变出了一只鸽子。The magician produced a dove.",di:[{c:"魔",e:"magic"},{c:"术",e:"technique"}]},
+        {cat:"performing",ch:"昆曲",py:"kūnqǔ",en:"Kunqu opera",def:"中国最古老的戏曲剧种之一，世界非物质文化遗产",defEn:"one of China's oldest opera forms, UNESCO Intangible Cultural Heritage",ex:"昆曲被称为百戏之母。Kunqu is called the mother of Chinese opera.",di:[{c:"昆",e:"Kunshan"},{c:"曲",e:"tune"}],note:"起源于江苏昆山，已有600多年历史。Originated in Kunshan, Jiangsu, over 600 years ago."},
+        {cat:"performing",ch:"京剧",py:"jīngjù",en:"Beijing opera / Peking opera",def:"中国国粹，融合唱念做打的综合表演艺术",defEn:"national treasure, comprehensive art combining singing, recitation, acting, and acrobatics",ex:"京剧脸谱很有特色。Beijing opera facial makeup is distinctive.",di:[{c:"京",e:"Beijing"},{c:"剧",e:"opera"}],note:"形成于清朝乾隆年间（1790年）。Formed during the Qianlong period of the Qing Dynasty."},
+        {cat:"performing",ch:"越剧",py:"yuèjù",en:"Yue opera / Shaoxing opera",def:"浙江地方戏曲，以女扮男装和抒情见长",defEn:"Zhejiang local opera, known for female cross-dressing and lyrical style",ex:"越剧以才子佳人故事为主。Yue opera focuses on romance stories.",di:[{c:"越",e:"Yue region"},{c:"剧",e:"opera"}],note:"起源于浙江嵊州。Originated in Shengzhou, Zhejiang."},
+        {cat:"performing",ch:"黄梅戏",py:"huángméi xì",en:"Huangmei opera",def:"安徽地方戏，旋律优美，生活气息浓厚",defEn:"Anhui local opera with beautiful melodies and rich folk flavor",ex:"天仙配是黄梅戏的代表作。The Goddess Marriage is a classic Huangmei opera.",di:[{c:"黄梅",e:"Huangmei"},{c:"戏",e:"opera"}],note:"起源于湖北黄梅，发展于安徽安庆。Originated in Huangmei, Hubei, developed in Anqing, Anhui."},
+        {cat:"performing",ch:"秦腔",py:"qínqiāng",en:"Qinqiang / Shaanxi opera",def:"西北地区最古老的戏曲，声音高亢激昂",defEn:"the oldest opera from Northwest China, known for powerful, high-pitched singing",ex:"秦腔听起来非常慷慨激昂。Qinqiang sounds very impassioned.",di:[{c:"秦",e:"Qin region"},{c:"腔",e:"tune"}],note:"起源于陕西、甘肃一带。Originated in Shaanxi and Gansu regions."},
+        {cat:"performing",ch:"皮影戏",py:"píyǐng xì",en:"shadow puppetry",def:"用兽皮或纸板做成人物剪影进行表演",defEn:"performance using silhouettes made of animal skin or cardboard",ex:"皮影戏是中国古老的电影形式。Shadow puppetry is China's ancient movie form.",di:[{c:"皮影",e:"shadow"},{c:"戏",e:"play"}],note:"已有2000多年历史。Has a history of over 2,000 years."},
+        {cat:"performing",ch:"木偶戏",py:"mù'ǒu xì",en:"puppet show / puppetry",def:"用木偶进行表演的戏剧形式",defEn:"dramatic form using puppets",ex:"木偶戏的操纵技巧很复杂。Puppetry manipulation is complex.",di:[{c:"木偶",e:"puppet"},{c:"戏",e:"play"}]},
+        {cat:"performing",ch:"变脸",py:"biànliǎn",en:"face-changing",def:"川剧中的特技，瞬间变换脸谱",defEn:"a stunt in Sichuan opera, instantly changing facial masks",ex:"变脸是川剧的绝活。Face-changing is a special skill of Sichuan opera.",di:[{c:"变",e:"change"},{c:"脸",e:"face"}],note:"川剧的一种独特技艺。A unique technique of Sichuan opera."},
+        {cat:"performing",ch:"马头琴",py:"mǎtóuqín",en:"morin khuur / horsehead fiddle",def:"蒙古族传统拉弦乐器，琴头雕刻成马头形状",defEn:"traditional Mongolian bowed instrument with a carved horse head",ex:"马头琴的声音悠扬辽阔。The morin khuur sounds melodious and vast.",di:[{c:"马头",e:"horse head"},{c:"琴",e:"instrument"}]},
+        {cat:"performing",ch:"碗碗腔",py:"wǎnwǎnqiāng",en:"Wanwan tune",def:"陕西地方小戏，用小铜碗击节伴奏",defEn:"Shaanxi local opera accompanied by small copper bowls",ex:"碗碗腔听起来清脆悦耳。The Wanwan tune sounds crisp and pleasant.",di:[{c:"碗",e:"bowl"},{c:"腔",e:"tune"}]},
+
+        // ========== 🎙️ 相声 / Crosstalk ==========
+        {cat:"crosstalk",ch:"相声",py:"xiàngsheng",en:"crosstalk / comic dialogue",def:"中国传统喜剧表演艺术",defEn:"traditional Chinese comedic performance art",ex:"我喜欢听相声。I love listening to crosstalk.",di:[{c:"相",e:"mutual"},{c:"声",e:"sound"}]},
+        {cat:"crosstalk",ch:"单口相声",py:"dānkǒu xiàngsheng",en:"solo crosstalk",def:"一个人表演的相声",defEn:"crosstalk performed by one person",ex:"单口相声考验演员的功力。Solo crosstalk tests the performer's skills.",di:[{c:"单口",e:"single mouth"},{c:"相声",e:"crosstalk"}]},
+        {cat:"crosstalk",ch:"对口相声",py:"duìkǒu xiàngsheng",en:"duo crosstalk",def:"两人配合的相声，最常见的形式",defEn:"crosstalk with two performers, the most common form",ex:"对口相声需要配合默契。Duo crosstalk requires great chemistry.",di:[{c:"对口",e:"paired mouths"},{c:"相声",e:"crosstalk"}]},
+        {cat:"crosstalk",ch:"群活相声",py:"qúnhuó xiàngsheng",en:"group crosstalk",def:"三人或以上表演",defEn:"three or more performers",ex:"群活相声很热闹。Group crosstalk is lively.",di:[{c:"群活",e:"group activity"},{c:"相声",e:"crosstalk"}]},
+        {cat:"crosstalk",ch:"逗哏的",py:"dòugénde",en:"lead comedian",def:"相声中的主要逗笑角色",defEn:"the main funny role",ex:"逗哏的负责抖包袱。The lead comedian delivers the punchlines.",di:[{c:"逗",e:"amuse"},{c:"哏",e:"funny"}]},
+        {cat:"crosstalk",ch:"捧哏的",py:"pěnggénde",en:"straight man",def:"相声中的配合角色",defEn:"the supporting role that sets up jokes",ex:"捧哏的作用也很重要。The straight man is also important.",di:[{c:"捧",e:"support"},{c:"哏",e:"funny"}]},
+        {cat:"crosstalk",ch:"说学逗唱",py:"shuō xué dòu chàng",en:"four basic skills",def:"相声演员的四大基本功",defEn:"the four fundamental skills of crosstalk",ex:"说学逗唱是相声的基础。These four are the foundation.",di:[{c:"说",e:"speak"},{c:"学",e:"imitate"},{c:"逗",e:"joke"},{c:"唱",e:"sing"}]},
+        {cat:"crosstalk",ch:"贯口",py:"guànkǒu",en:"rapid-fire monologue",def:"一口气快速说完大段台词",defEn:"delivering a long monologue rapidly in one breath",ex:"这段贯口考验嘴皮子功夫。This monologue tests verbal skills.",di:[{c:"贯",e:"continuously"},{c:"口",e:"mouth"}]},
+        {cat:"crosstalk",ch:"垫话",py:"diànhuà",en:"opening joke / warm-up",def:"相声开场的铺垫说笑",defEn:"opening banter to warm up the audience",ex:"垫话是为了活跃气氛。The warm-up livened the atmosphere.",di:[{c:"垫",e:"cushion"},{c:"话",e:"speech"}]},
+        {cat:"crosstalk",ch:"包袱",py:"bāofu",en:"punchline / comedic payoff",def:"相声中的笑料",defEn:"the joke or comedic payoff",ex:"这个包袱抖得很响。This punchline got a big laugh.",di:[{c:"包",e:"wrap"},{c:"袱",e:"cloth"}]},
+
+        // ========== 🎼 音乐理论 / Music Theory ==========
+        {cat:"theory",ch:"五线谱",py:"wǔxiànpǔ",en:"staff / stave",def:"记录音乐的五条平行线",defEn:"five parallel lines for writing music",ex:"学习五线谱是音乐的基础。Learning the staff is foundational.",di:[{c:"五",e:"five"},{c:"线",e:"line"},{c:"谱",e:"score"}]},
+        {cat:"theory",ch:"高音谱号",py:"gāoyīn pǔhào",en:"treble clef / G clef",def:"标记高音区的谱号",defEn:"clef marking the higher pitch range",ex:"高音谱号又叫G谱号。Treble clef is also called G clef.",di:[{c:"高音",e:"high pitch"},{c:"谱号",e:"clef"}]},
+        {cat:"theory",ch:"低音谱号",py:"dīyīn pǔhào",en:"bass clef / F clef",def:"标记低音区的谱号",defEn:"clef marking the lower pitch range",ex:"低音谱号又叫F谱号。Bass clef is also called F clef.",di:[{c:"低音",e:"low pitch"},{c:"谱号",e:"clef"}]},
+        {cat:"theory",ch:"音符",py:"yīnfú",en:"note",def:"表示音高和时值的符号",defEn:"symbol representing pitch and duration",ex:"每个音符都有特定的时值。Each note has a specific duration.",di:[{c:"音",e:"sound"},{c:"符",e:"symbol"}]},
+        {cat:"theory",ch:"全音符",py:"quányīnfú",en:"whole note / semibreve",def:"时值最长的基本音符",defEn:"basic note with the longest duration",ex:"全音符持续四拍。A whole note lasts four beats.",di:[{c:"全",e:"whole"},{c:"音符",e:"note"}]},
+        {cat:"theory",ch:"二分音符",py:"èrfēn yīnfú",en:"half note",def:"全音符一半时值",defEn:"half the duration of a whole note",ex:"二分音符持续两拍。A half note lasts two beats.",di:[{c:"二分",e:"half"},{c:"音符",e:"note"}]},
+        {cat:"theory",ch:"四分音符",py:"sìfēn yīnfú",en:"quarter note",def:"一拍一个的音符",defEn:"one beat per note",ex:"四分音符是最常见的节奏单位。Quarter notes are the most common.",di:[{c:"四分",e:"quarter"},{c:"音符",e:"note"}]},
+        {cat:"theory",ch:"八分音符",py:"bāfēn yīnfú",en:"eighth note",def:"半拍一个的音符",defEn:"half-beat note",ex:"八分音符比四分音符快一倍。Eighth notes are twice as fast.",di:[{c:"八分",e:"eighth"},{c:"音符",e:"note"}]},
+        {cat:"theory",ch:"节奏",py:"jiézòu",en:"rhythm",def:"音乐中长短音的组织",defEn:"organization of long and short sounds",ex:"这首歌的节奏感很强。This song has a strong rhythm.",di:[{c:"节",e:"beat"},{c:"奏",e:"play"}]},
+        {cat:"theory",ch:"旋律",py:"xuánlǜ",en:"melody",def:"音乐的主线条",defEn:"the main line of music",ex:"这段旋律很优美。This melody is beautiful.",di:[{c:"旋",e:"spin"},{c:"律",e:"law"}]},
+        {cat:"theory",ch:"和声",py:"héshēng",en:"harmony",def:"多个音同时发声",defEn:"multiple sounds played simultaneously",ex:"和声让音乐更丰富。Harmony enriches music.",di:[{c:"和",e:"together"},{c:"声",e:"sound"}]},
+        {cat:"theory",ch:"音阶",py:"yīnjiē",en:"scale",def:"按高低顺序排列的一组音",defEn:"a set of notes arranged in order",ex:"C大调音阶是最基本的音阶。The C major scale is the most basic.",di:[{c:"音",e:"sound"},{c:"阶",e:"ladder"}]},
+        {cat:"theory",ch:"调号",py:"diàohào",en:"key signature",def:"标记乐曲调性的符号",defEn:"symbols marking the key of a piece",ex:"调号告诉你哪些音要升或降。The key signature shows which notes to alter.",di:[{c:"调",e:"key"},{c:"号",e:"sign"}]},
+        {cat:"theory",ch:"升号",py:"shēnghào",en:"sharp",def:"升高半音",defEn:"raises a note by a semitone",ex:"升号让音符升高半音。A sharp raises the note.",di:[{c:"升",e:"raise"},{c:"号",e:"sign"}]},
+        {cat:"theory",ch:"降号",py:"jiànghào",en:"flat",def:"降低半音",defEn:"lowers a note by a semitone",ex:"降号让音符降低半音。A flat lowers the note.",di:[{c:"降",e:"lower"},{c:"号",e:"sign"}]},
+        {cat:"theory",ch:"和弦",py:"héxián",en:"chord",def:"三个或以上音同时发声",defEn:"three or more notes played together",ex:"C和弦由C、E、G组成。The C chord consists of C, E, and G.",di:[{c:"和",e:"together"},{c:"弦",e:"string"}]},
+        {cat:"theory",ch:"音程",py:"yīnchéng",en:"interval",def:"两个音之间的高低距离",defEn:"the pitch distance between two notes",ex:"C到G的音程是五度。The interval from C to G is a fifth.",di:[{c:"音",e:"sound"},{c:"程",e:"distance"}]},
+
+        // ========== 🪕 中国乐器 / Chinese Instruments ==========
+        {cat:"instruments-chinese",ch:"琴",py:"qín",en:"qin / guqin",def:"中国最古老的弹拨乐器，原只称琴",defEn:"the oldest Chinese plucked instrument, originally just called qin",ex:"古人以琴棋书画为修身之艺。The ancients cultivated themselves with qin, chess, calligraphy, and painting.",di:[{c:"琴",e:"qin"}],note:"古代独称琴，后因钢琴传入加古字以区分。Originally just called 琴; 古 was added to distinguish from piano."},
+        {cat:"instruments-chinese",ch:"古琴",py:"gǔqín",en:"guqin",def:"七弦的中国传统拨弦乐器，有3000年以上历史",defEn:"seven-stringed traditional Chinese plucked instrument, over 3000 years old",ex:"古琴的声音深沉悠远。The guqin's sound is deep and resonant.",di:[{c:"古",e:"ancient"},{c:"琴",e:"qin"}],note:"原只称琴，钢琴传入后加古字以区分。Originally only called 琴; 古 added after piano's introduction."},
+        {cat:"instruments-chinese",ch:"古筝",py:"gǔzhēng",en:"guzheng",def:"21弦的中国传统弹拨乐器",defEn:"21-stringed traditional Chinese plucked instrument",ex:"古筝的音色典雅优美。The guzheng has an elegant tone.",di:[{c:"古",e:"ancient"},{c:"筝",e:"zither"}]},
+        {cat:"instruments-chinese",ch:"琵琶",py:"pípá",en:"pipa",def:"四弦的中国弹拨乐器，梨形琴身",defEn:"four-stringed Chinese plucked instrument, pear-shaped body",ex:"琵琶的演奏技巧非常丰富。The pipa has rich playing techniques.",di:[{c:"琵琶",e:"pipa"}]},
+        {cat:"instruments-chinese",ch:"三弦",py:"sānxián",en:"sanxian",def:"三根弦的中国弹拨乐器",defEn:"three-stringed Chinese plucked instrument",ex:"三弦的音色很有特色。The sanxian has a distinctive sound.",di:[{c:"三",e:"three"},{c:"弦",e:"string"}]},
+        {cat:"instruments-chinese",ch:"阮",py:"ruǎn",en:"ruan / moon lute",def:"圆形音箱的四弦弹拨乐器",defEn:"four-stringed plucked instrument with a round sound box",ex:"阮的声音温厚圆润。The ruan has a warm, round tone.",di:[{c:"阮",e:"ruan"}],note:"以魏晋名士阮咸命名。Named after Ruan Xian, a famous scholar of the Wei-Jin period."},
+        {cat:"instruments-chinese",ch:"月琴",py:"yuèqín",en:"yueqin / moon guitar",def:"圆形琴身的弹拨乐器",defEn:"plucked instrument with a round body",ex:"月琴在京剧中常用。The yueqin is commonly used in Beijing opera.",di:[{c:"月",e:"moon"},{c:"琴",e:"instrument"}]},
+        {cat:"instruments-chinese",ch:"柳琴",py:"liǔqín",en:"liuqin / willow lute",def:"形似柳叶的小型弹拨乐器",defEn:"small plucked instrument shaped like a willow leaf",ex:"柳琴的声音清脆明亮。The liuqin has a crisp, bright sound.",di:[{c:"柳",e:"willow"},{c:"琴",e:"instrument"}]},
+        {cat:"instruments-chinese",ch:"瑟",py:"sè",en:"se",def:"古代大型弹拨乐器，25弦",defEn:"ancient large plucked instrument with 25 strings",ex:"琴瑟和鸣比喻夫妻和睦。Qin and se in harmony symbolizes marital bliss.",di:[{c:"瑟",e:"se zither"}],note:"古代与琴合称琴瑟。Ancient texts pair 琴 and 瑟 together."},
+        {cat:"instruments-chinese",ch:"箜篌",py:"kōnghóu",en:"konghou / Chinese harp",def:"中国古代竖琴类乐器",defEn:"ancient Chinese harp-like instrument",ex:"箜篌的声音空灵优美。The konghou sounds ethereal and beautiful.",di:[{c:"箜篌",e:"harp"}]},
+        {cat:"instruments-chinese",ch:"筑",py:"zhù",en:"zhu",def:"中国古代击弦乐器，已失传",defEn:"ancient Chinese struck string instrument, now lost",ex:"史记中记载了筑这种乐器。The zhu is recorded in the Historical Records.",di:[{c:"筑",e:"zhu instrument"}],note:"已失传的古代乐器。An ancient instrument that has been lost to history."},
+        {cat:"instruments-chinese",ch:"二胡",py:"èrhú",en:"erhu",def:"两根弦的中国拉弦乐器",defEn:"two-stringed Chinese bowed instrument",ex:"二胡的声音如泣如诉。The erhu sounds like singing and crying.",di:[{c:"二",e:"two"},{c:"胡",e:"barbarian"}]},
+        {cat:"instruments-chinese",ch:"笛子",py:"dízi",en:"dizi / bamboo flute",def:"中国横吹竹管乐器",defEn:"Chinese transverse bamboo flute",ex:"笛子的声音悠扬悦耳。The dizi has a melodious sound.",di:[{c:"笛",e:"flute"},{c:"子",e:"suffix"}]},
+        {cat:"instruments-chinese",ch:"箫",py:"xiāo",en:"xiao / vertical bamboo flute",def:"中国竖吹竹管乐器",defEn:"Chinese vertical bamboo flute",ex:"箫声悠远空灵。The xiao sounds distant and ethereal.",di:[{c:"箫",e:"xiao flute"}]},
+        {cat:"instruments-chinese",ch:"排箫",py:"páixiāo",en:"panpipes",def:"多根竹管排列的吹奏乐器",defEn:"multiple bamboo tubes arranged for blowing",ex:"排箫的声音空灵悦耳。Panpipes sound ethereal and pleasant.",di:[{c:"排",e:"row"},{c:"箫",e:"flute"}]},
+        {cat:"instruments-chinese",ch:"笙",py:"shēng",en:"sheng / reed pipe",def:"中国簧管乐器，可同时吹多个音",defEn:"Chinese reed instrument, can play multiple notes simultaneously",ex:"笙是唯一能演奏和声的中国管乐器。Sheng is the only Chinese wind instrument that can play chords.",di:[{c:"笙",e:"sheng pipe"}]},
+        {cat:"instruments-chinese",ch:"埙",py:"xūn",en:"xun / clay ocarina",def:"中国最古老的吹奏乐器，陶土制成",defEn:"the oldest Chinese wind instrument, made of clay",ex:"埙的声音古朴苍凉。The xun has an ancient, desolate sound.",di:[{c:"埙",e:"clay ocarina"}],note:"已有7000多年历史。Has over 7,000 years of history."},
+        {cat:"instruments-chinese",ch:"唢呐",py:"suǒnà",en:"suona / Chinese oboe",def:"中国双簧吹管乐器，声音高亢嘹亮",defEn:"Chinese double-reed wind instrument with a powerful, piercing sound",ex:"唢呐一响，不是大喜就是大悲。When the suona plays, it's either great joy or great sorrow.",di:[{c:"唢呐",e:"suona"}]},
+        {cat:"instruments-chinese",ch:"编钟",py:"biānzhōng",en:"bianzhong / bronze bells",def:"中国古代大型打击乐器，青铜铸造",defEn:"ancient Chinese large percussion instrument, cast in bronze",ex:"曾侯乙编钟是国宝级文物。The Marquis Yi's bianzhong is a national treasure.",di:[{c:"编",e:"arranged"},{c:"钟",e:"bell"}],note:"战国时期的大型宫廷乐器。Large court instrument from the Warring States period."},
+        {cat:"instruments-chinese",ch:"编磬",py:"biānqìng",en:"bianqing / stone chimes",def:"石制的古代打击乐器",defEn:"ancient percussion instrument made of stone",ex:"编磬常与编钟合奏。Bianqing is often played with bianzhong.",di:[{c:"编",e:"arranged"},{c:"磬",e:"stone chime"}]},
+        {cat:"instruments-chinese",ch:"锣",py:"luó",en:"gong / luo",def:"铜制圆形打击乐器",defEn:"round bronze percussion instrument",ex:"锣声一响，好戏开场。When the gong sounds, the show begins.",di:[{c:"锣",e:"gong"}]},
+        {cat:"instruments-chinese",ch:"钹",py:"bó",en:"cymbals / bo",def:"成对使用的铜制打击乐器",defEn:"paired bronze percussion instruments",ex:"钹的声音清脆响亮。The cymbals are crisp and loud.",di:[{c:"钹",e:"cymbals"}]},
+        {cat:"instruments-chinese",ch:"梆子",py:"bāngzi",en:"bangzi / clapper",def:"硬木制成的打击乐器",defEn:"percussion instrument made of hardwood",ex:"梆子打出了鲜明的节奏。The clapper keeps a sharp rhythm.",di:[{c:"梆",e:"clapper"},{c:"子",e:"suffix"}]},
+        {cat:"instruments-chinese",ch:"扬琴",py:"yángqín",en:"yangqin / Chinese dulcimer",def:"击弦乐器，用竹制琴槌击打琴弦",defEn:"struck string instrument played with bamboo hammers",ex:"扬琴的声音清脆明亮。The yangqin has a crisp, bright sound.",di:[{c:"扬",e:"raise"},{c:"琴",e:"instrument"}],note:"由波斯传入，后成为中国民族乐器。Introduced from Persia, later became a Chinese instrument."},
+
+        // ========== 🎻 西洋乐器 / Western Instruments ==========
+        {cat:"instruments-western",ch:"钢琴",py:"gāngqín",en:"piano",def:"键盘乐器之王",defEn:"king of keyboard instruments",ex:"钢琴是最受欢迎的乐器之一。Piano is one of the most popular instruments.",di:[{c:"钢",e:"steel"},{c:"琴",e:"instrument"}],note:"意大利语 pianoforte 的翻译。Translation of Italian pianoforte."},
+        {cat:"instruments-western",ch:"风琴",py:"fēngqín",en:"organ",def:"通过风箱产生声音的键盘乐器",defEn:"keyboard instrument producing sound through bellows",ex:"教堂里的风琴声音宏大。The church organ has a grand sound.",di:[{c:"风",e:"wind"},{c:"琴",e:"instrument"}]},
+        {cat:"instruments-western",ch:"竖琴",py:"shùqín",en:"harp",def:"大型拨弦乐器，有47根弦",defEn:"large plucked instrument with 47 strings",ex:"竖琴是交响乐团中重要的色彩乐器。The harp adds color to the symphony orchestra.",di:[{c:"竖",e:"vertical"},{c:"琴",e:"instrument"}]},
+        {cat:"instruments-western",ch:"小提琴",py:"xiǎotíqín",en:"violin",def:"弦乐家族的高音乐器",defEn:"high-pitched member of the string family",ex:"小提琴是交响乐团的核心。The violin is the heart of the orchestra.",di:[{c:"小",e:"small"},{c:"提琴",e:"string instrument"}]},
+        {cat:"instruments-western",ch:"中提琴",py:"zhōngtíqín",en:"viola",def:"比小提琴稍大，音色温暖",defEn:"slightly larger than violin, warmer tone",ex:"中提琴在乐队中起桥梁作用。The viola bridges the strings.",di:[{c:"中",e:"medium"},{c:"提琴",e:"string instrument"}]},
+        {cat:"instruments-western",ch:"大提琴",py:"dàtíqín",en:"cello",def:"弦乐家族的低音乐器",defEn:"low-pitched string instrument",ex:"大提琴的声音深沉感人。The cello is deep and moving.",di:[{c:"大",e:"big"},{c:"提琴",e:"string instrument"}]},
+        {cat:"instruments-western",ch:"低音提琴",py:"dīyīn tíqín",en:"double bass",def:"弦乐家族最大的乐器",defEn:"the largest string instrument",ex:"低音提琴是乐队的基础。The double bass is the foundation.",di:[{c:"低音",e:"bass"},{c:"提琴",e:"string instrument"}]},
+        {cat:"instruments-western",ch:"吉他",py:"jítā",en:"guitar",def:"六弦拨弦乐器",defEn:"six-stringed plucked instrument",ex:"吉他是流行音乐的灵魂。The guitar is the soul of pop music.",di:[{c:"吉他",e:"guitar"}]},
+        {cat:"instruments-western",ch:"电吉他",py:"diàn jítā",en:"electric guitar",def:"需要扩音的吉他",defEn:"guitar requiring amplification",ex:"摇滚乐离不开电吉他。Rock music can't do without electric guitar.",di:[{c:"电",e:"electric"},{c:"吉他",e:"guitar"}]},
+        {cat:"instruments-western",ch:"贝斯",py:"bèisī",en:"bass guitar",def:"低音吉他",defEn:"low-pitched guitar",ex:"贝斯提供音乐的低音基础。The bass provides the low-end foundation.",di:[{c:"贝斯",e:"bass"}]},
+        {cat:"instruments-western",ch:"长笛",py:"chángdí",en:"flute",def:"横吹的无簧木管乐器",defEn:"side-blown reedless woodwind",ex:"长笛的声音清澈明亮。The flute has a clear, bright sound.",di:[{c:"长",e:"long"},{c:"笛",e:"flute"}]},
+        {cat:"instruments-western",ch:"单簧管",py:"dānhuángguǎn",en:"clarinet",def:"单簧片的木管乐器",defEn:"single-reed woodwind instrument",ex:"单簧管的音域很广。The clarinet has a wide range.",di:[{c:"单簧",e:"single reed"},{c:"管",e:"tube"}]},
+        {cat:"instruments-western",ch:"双簧管",py:"shuānghuángguǎn",en:"oboe",def:"双簧片的木管乐器",defEn:"double-reed woodwind instrument",ex:"双簧管的音色富有表现力。The oboe has an expressive tone.",di:[{c:"双簧",e:"double reed"},{c:"管",e:"tube"}]},
+        {cat:"instruments-western",ch:"萨克斯",py:"sàkèsī",en:"saxophone",def:"金属制但属木管类",defEn:"made of metal but classified as woodwind",ex:"萨克斯在爵士乐中很常见。Saxophone is common in jazz.",di:[{c:"萨克斯",e:"saxophone"}]},
+        {cat:"instruments-western",ch:"小号",py:"xiǎohào",en:"trumpet",def:"铜管乐器中音最高的",defEn:"the highest-pitched brass instrument",ex:"小号的声音嘹亮有力。The trumpet is bright and powerful.",di:[{c:"小",e:"small"},{c:"号",e:"horn"}]},
+        {cat:"instruments-western",ch:"长号",py:"chánghào",en:"trombone",def:"用滑管改变音高的铜管乐器",defEn:"brass instrument using a slide to change pitch",ex:"长号的声音雄壮有力。The trombone is majestic and powerful.",di:[{c:"长",e:"long"},{c:"号",e:"horn"}]},
+        {cat:"instruments-western",ch:"定音鼓",py:"dìngyīngǔ",en:"timpani / kettle drums",def:"可调节音高的鼓",defEn:"drums that can be tuned to specific pitches",ex:"定音鼓在交响乐中制造紧张感。Timpani creates tension in symphonies.",di:[{c:"定音",e:"tuned"},{c:"鼓",e:"drum"}]},
+        {cat:"instruments-western",ch:"架子鼓",py:"jiàzigǔ",en:"drum kit / drum set",def:"由多个鼓和镲组成的套鼓",defEn:"a set of multiple drums and cymbals",ex:"架子鼓是摇滚乐的核心。The drum kit is central to rock music.",di:[{c:"架子",e:"rack"},{c:"鼓",e:"drum"}]},
+        {cat:"instruments-western",ch:"铃鼓",py:"línggǔ",en:"tambourine",def:"带铃铛的手持打击乐器",defEn:"handheld percussion instrument with jingles",ex:"铃鼓增加了音乐的节奏感。The tambourine adds rhythm.",di:[{c:"铃",e:"bell"},{c:"鼓",e:"drum"}]},
+        {cat:"instruments-western",ch:"三角铁",py:"sānjiǎotiě",en:"triangle",def:"三角形的金属打击乐器",defEn:"triangular metal percussion instrument",ex:"三角铁发出清脆的叮叮声。The triangle produces a clear ding.",di:[{c:"三角",e:"triangle"},{c:"铁",e:"iron"}]},
+        {cat:"instruments-western",ch:"沙锤",py:"shāchuí",en:"maracas",def:"内装沙粒的摇奏乐器",defEn:"shaken instrument filled with seeds or beads",ex:"沙锤增添了拉丁风情。Maracas add a Latin flavor.",di:[{c:"沙",e:"sand"},{c:"锤",e:"hammer"}]},
+        {cat:"instruments-western",ch:"碰铃",py:"pènglíng",en:"finger cymbals",def:"一对小铜铃，互相碰击发声",defEn:"a pair of small cymbals struck together",ex:"碰铃的声音清脆悦耳。Finger cymbals sound crisp and pleasant.",di:[{c:"碰",e:"strike"},{c:"铃",e:"bell"}]},
+        {cat:"instruments-western",ch:"木琴",py:"mùqín",en:"xylophone",def:"用木条排列的打击乐器",defEn:"percussion instrument with arranged wooden bars",ex:"木琴的音色清脆欢快。The xylophone sounds crisp and cheerful.",di:[{c:"木",e:"wood"},{c:"琴",e:"instrument"}]},
+        {cat:"instruments-western",ch:"钟琴",py:"zhōngqín",en:"glockenspiel",def:"金属条的打击乐器",defEn:"percussion instrument with metal bars",ex:"钟琴的声音像铃声一样清脆。The glockenspiel sounds like clear bells.",di:[{c:"钟",e:"bell"},{c:"琴",e:"instrument"}]},
+
+        // ========== 🎤 声乐 / Vocal Music ==========
+        {cat:"vocal",ch:"声乐",py:"shēngyuè",en:"vocal music",def:"用人声演唱的音乐形式",defEn:"music performed with the human voice",ex:"她从小学习声乐。She studied vocal music from a young age.",di:[{c:"声",e:"voice"},{c:"乐",e:"music"}]},
+        {cat:"vocal",ch:"女高音",py:"nǚgāoyīn",en:"soprano",def:"最高的女声",defEn:"the highest female voice",ex:"她的音域达到了女高音。Her range reaches soprano.",di:[{c:"女",e:"female"},{c:"高音",e:"high pitch"}]},
+        {cat:"vocal",ch:"女中音",py:"nǚzhōngyīn",en:"mezzo-soprano",def:"中等音高的女声",defEn:"medium-high female voice",ex:"她是优秀的女中音歌手。She is an excellent mezzo-soprano.",di:[{c:"女",e:"female"},{c:"中音",e:"middle pitch"}]},
+        {cat:"vocal",ch:"男高音",py:"nángāoyīn",en:"tenor",def:"最高的男声",defEn:"the highest male voice",ex:"他是著名的男高音歌手。He is a famous tenor.",di:[{c:"男",e:"male"},{c:"高音",e:"high pitch"}]},
+        {cat:"vocal",ch:"男低音",py:"nándīyīn",en:"bass",def:"最低的男声",defEn:"the lowest male voice",ex:"他的声音是典型的男低音。His voice is a typical bass.",di:[{c:"男",e:"male"},{c:"低音",e:"low pitch"}]},
+        {cat:"vocal",ch:"假声",py:"jiǎshēng",en:"falsetto",def:"不自然的、高于正常音域的发声",defEn:"artificial voice higher than normal range",ex:"他用假声唱出了那个高音。He hit that high note using falsetto.",di:[{c:"假",e:"false"},{c:"声",e:"voice"}]},
+        {cat:"vocal",ch:"真声",py:"zhēnshēng",en:"chest voice",def:"自然的、胸腔共鸣的发声",defEn:"natural voice with chest resonance",ex:"真声唱出的低音很有力量。Chest voice produces powerful lows.",di:[{c:"真",e:"true"},{c:"声",e:"voice"}]},
+        {cat:"vocal",ch:"合唱",py:"héchàng",en:"chorus / choir",def:"多人一起演唱",defEn:"singing together in a group",ex:"合唱团的演出很震撼。The choir was impressive.",di:[{c:"合",e:"together"},{c:"唱",e:"sing"}]},
+        {cat:"vocal",ch:"独唱",py:"dúchàng",en:"solo",def:"一个人演唱",defEn:"singing alone",ex:"她的独唱获得了满堂彩。Her solo received a standing ovation.",di:[{c:"独",e:"alone"},{c:"唱",e:"sing"}]},
+        {cat:"vocal",ch:"二重唱",py:"èrchóngchàng",en:"duet",def:"两个人的合唱",defEn:"singing by two people",ex:"他们的二重唱配合完美。Their duet was perfect.",di:[{c:"二重",e:"double"},{c:"唱",e:"sing"}]},
+        {cat:"vocal",ch:"副歌",py:"fùgē",en:"chorus / refrain",def:"歌曲中重复的部分",defEn:"the repeating part of a song",ex:"这首歌的副歌很容易记住。This song's chorus is catchy.",di:[{c:"副",e:"secondary"},{c:"歌",e:"song"}]},
+        {cat:"vocal",ch:"阿卡贝拉",py:"ākǎbèilā",en:"a cappella",def:"无乐器伴奏的人声合唱",defEn:"vocal music without instrumental accompaniment",ex:"阿卡贝拉组合的声音很纯净。A cappella sounds pure.",di:[{c:"阿卡贝拉",e:"a cappella"}]},
+        {cat:"vocal",ch:"颤音",py:"chànyīn",en:"vibrato",def:"音高有规律的微小变化",defEn:"regular, slight variation in pitch",ex:"她的颤音运用得非常自然。She uses vibrato very naturally.",di:[{c:"颤",e:"tremble"},{c:"音",e:"sound"}]},
+
+        // ========== 🎧 音乐类型 / Music Genres ==========
+        {cat:"genres",ch:"古典音乐",py:"gǔdiǎn yīnyuè",en:"classical music",def:"西方传统艺术音乐",defEn:"Western traditional art music",ex:"古典音乐可以陶冶情操。Classical music cultivates the mind.",di:[{c:"古典",e:"classical"},{c:"音乐",e:"music"}]},
+        {cat:"genres",ch:"流行歌曲",py:"liúxíng gēqǔ",en:"pop songs",def:"广受欢迎的大众歌曲",defEn:"widely popular mainstream songs",ex:"流行歌曲的旋律朗朗上口。Pop songs have catchy melodies.",di:[{c:"流行",e:"popular"},{c:"歌曲",e:"song"}]},
+        {cat:"genres",ch:"爵士乐",py:"juéshìyuè",en:"jazz",def:"起源于美国的即兴音乐",defEn:"improvisational music from America",ex:"爵士乐充满自由和创造力。Jazz is full of creativity.",di:[{c:"爵士",e:"jazz"},{c:"乐",e:"music"}]},
+        {cat:"genres",ch:"民歌",py:"míngē",en:"folk songs",def:"民间流传的传统歌曲",defEn:"traditional songs passed down among people",ex:"民歌反映了当地的文化。Folk songs reflect local culture.",di:[{c:"民",e:"folk"},{c:"歌",e:"song"}]},
+        {cat:"genres",ch:"摇滚乐",py:"yáogǔn yuè",en:"rock and roll",def:"强调电吉他和强烈节奏",defEn:"emphasizing electric guitar and strong rhythm",ex:"摇滚乐让人热血沸腾。Rock gets your blood pumping.",di:[{c:"摇滚",e:"rock and roll"},{c:"乐",e:"music"}]},
+        {cat:"genres",ch:"重金属",py:"zhòngjīnshǔ",en:"heavy metal",def:"摇滚乐的极端分支",defEn:"extreme branch of rock",ex:"重金属音乐非常有力量。Heavy metal is very powerful.",di:[{c:"重",e:"heavy"},{c:"金属",e:"metal"}]},
+        {cat:"genres",ch:"电子音乐",py:"diànzǐ yīnyuè",en:"electronic music",def:"使用电子设备创作的音乐",defEn:"music created using electronic devices",ex:"电子音乐在夜店很流行。Electronic music is popular in clubs.",di:[{c:"电子",e:"electronic"},{c:"音乐",e:"music"}]},
+        {cat:"genres",ch:"嘻哈",py:"xīhā",en:"hip hop",def:"包含说唱、街舞等的文化",defEn:"culture including rap, street dance, etc.",ex:"嘻哈文化影响了一代人。Hip hop influenced a generation.",di:[{c:"嘻哈",e:"hip hop"}]},
+        {cat:"genres",ch:"蓝调",py:"lándiào",en:"blues",def:"起源于非裔美国人的音乐",defEn:"music originating from African Americans",ex:"蓝调表达了深沉的情感。Blues expresses deep emotions.",di:[{c:"蓝",e:"blue"},{c:"调",e:"tune"}]},
+        {cat:"genres",ch:"轻音乐",py:"qīngyīnyuè",en:"light music",def:"轻松愉快的器乐曲",defEn:"light and pleasant instrumental music",ex:"轻音乐适合放松心情。Light music is good for relaxing.",di:[{c:"轻",e:"light"},{c:"音乐",e:"music"}]},
+        {cat:"genres",ch:"交响乐",py:"jiāoxiǎngyuè",en:"symphony",def:"大型管弦乐队作品",defEn:"large orchestral work",ex:"交响乐的结构很复杂。A symphony has a complex structure.",di:[{c:"交响",e:"symphony"},{c:"乐",e:"music"}]},
+        {cat:"genres",ch:"协奏曲",py:"xiézòuqǔ",en:"concerto",def:"独奏乐器与乐队合作的乐曲",defEn:"a piece featuring a solo instrument with orchestra",ex:"钢琴协奏曲展示了独奏家的技巧。A piano concerto showcases the soloist.",di:[{c:"协奏",e:"collaborative"},{c:"曲",e:"piece"}]},
+        {cat:"genres",ch:"奏鸣曲",py:"zòumíngqǔ",en:"sonata",def:"由几个乐章组成的器乐曲",defEn:"instrumental piece with several movements",ex:"月光奏鸣曲是贝多芬的代表作。Moonlight Sonata is Beethoven's masterpiece.",di:[{c:"奏鸣",e:"sonata"},{c:"曲",e:"piece"}]},
+
+        // ========== 👥 音乐人 / Music Professionals ==========
+        {cat:"professionals",ch:"音乐家",py:"yīnyuèjiā",en:"musician",def:"从事音乐创作或表演的人",defEn:"person engaged in music creation or performance",ex:"贝多芬是伟大的音乐家。Beethoven was a great musician.",di:[{c:"音乐",e:"music"},{c:"家",e:"expert"}]},
+        {cat:"professionals",ch:"作曲家",py:"zuòqǔjiā",en:"composer",def:"创作音乐作品的人",defEn:"person who creates musical works",ex:"这位作曲家创作了许多名曲。This composer created many famous pieces.",di:[{c:"作曲",e:"compose"},{c:"家",e:"expert"}]},
+        {cat:"professionals",ch:"指挥",py:"zhǐhuī",en:"conductor",def:"带领乐队演奏的人",defEn:"person who leads the orchestra",ex:"指挥用指挥棒引导乐团。The conductor guides with a baton.",di:[{c:"指",e:"direct"},{c:"挥",e:"wave"}]},
+        {cat:"professionals",ch:"歌手",py:"gēshǒu",en:"singer",def:"演唱歌曲的人",defEn:"person who sings songs",ex:"这位歌手的嗓音非常独特。This singer has a unique voice.",di:[{c:"歌",e:"song"},{c:"手",e:"practitioner"}]},
+        {cat:"professionals",ch:"独奏者",py:"dúzòuzhě",en:"soloist",def:"独自演奏的人",defEn:"person who performs alone",ex:"独奏者展示了他的高超技巧。The soloist displayed superb skills.",di:[{c:"独奏",e:"solo"},{c:"者",e:"person"}]},
+        {cat:"professionals",ch:"制作人",py:"zhìzuòrén",en:"producer",def:"负责音乐录制和制作的人",defEn:"person responsible for music recording and production",ex:"制作人对专辑的质量把关。The producer ensures album quality.",di:[{c:"制作",e:"produce"},{c:"人",e:"person"}]},
+
+        // ========== 🎬 表演舞台 / Performance & Stage ==========
+        {cat:"stage",ch:"演出",py:"yǎnchū",en:"performance / show",def:"公开表演",defEn:"public performance",ex:"今晚的演出非常成功。Tonight's show was a great success.",di:[{c:"演",e:"perform"},{c:"出",e:"out"}]},
+        {cat:"stage",ch:"排练",py:"páiliàn",en:"rehearsal",def:"演出前的练习",defEn:"practice before a performance",ex:"排练是演出成功的关键。Rehearsal is key to success.",di:[{c:"排",e:"arrange"},{c:"练",e:"practice"}]},
+        {cat:"stage",ch:"音乐会",py:"yīnyuèhuì",en:"concert",def:"公开的音乐表演活动",defEn:"public musical performance event",ex:"这场音乐会的门票已经售罄。This concert is sold out.",di:[{c:"音乐",e:"music"},{c:"会",e:"gathering"}]},
+        {cat:"stage",ch:"观众",py:"guānzhòng",en:"audience",def:"观看表演的人",defEn:"people watching the performance",ex:"观众的热烈掌声让演员很感动。The audience's applause moved them.",di:[{c:"观",e:"watch"},{c:"众",e:"crowd"}]},
+        {cat:"stage",ch:"返场",py:"fǎnchǎng",en:"encore",def:"演出结束后再次上台",defEn:"returning to stage after the show",ex:"观众们高呼返场。The audience called for an encore.",di:[{c:"返",e:"return"},{c:"场",e:"stage"}]},
+
+        // ========== 💿 音乐产业 / Music Industry ==========
+        {cat:"industry",ch:"专辑",py:"zhuānjí",en:"album",def:"多首歌曲的合集",defEn:"collection of multiple songs",ex:"她的新专辑下个月发行。Her new album comes out next month.",di:[{c:"专",e:"special"},{c:"辑",e:"collection"}]},
+        {cat:"industry",ch:"排行榜",py:"páihángbǎng",en:"music chart",def:"根据受欢迎程度排名的榜单",defEn:"ranking list based on popularity",ex:"这首歌登上了排行榜第一名。This song topped the charts.",di:[{c:"排行",e:"ranking"},{c:"榜",e:"list"}]},
+        {cat:"industry",ch:"版权",py:"bǎnquán",en:"copyright",def:"对作品拥有的法律权利",defEn:"legal rights to a work",ex:"音乐版权保护创作者的利益。Music copyright protects creators.",di:[{c:"版",e:"edition"},{c:"权",e:"right"}]},
+
+        // ========== 📝 音乐创作 / Composition ==========
+        {cat:"composition",ch:"作曲",py:"zuòqǔ",en:"compose",def:"创作音乐曲调",defEn:"creating musical tunes",ex:"他花了一个月来作曲。He spent a month composing.",di:[{c:"作",e:"create"},{c:"曲",e:"tune"}]},
+        {cat:"composition",ch:"填词",py:"tiáncí",en:"write lyrics",def:"为歌曲创作歌词",defEn:"writing lyrics for a song",ex:"她为这首歌填了词。She wrote the lyrics for this song.",di:[{c:"填",e:"fill"},{c:"词",e:"words"}]},
+        {cat:"composition",ch:"编曲",py:"biānqǔ",en:"arrange",def:"为乐曲编排配器",defEn:"arranging instrumentation",ex:"编曲让这首歌更加丰富。The arrangement enriched the song.",di:[{c:"编",e:"arrange"},{c:"曲",e:"music"}]},
+        {cat:"composition",ch:"混音",py:"hùnyīn",en:"mixing",def:"将多个音轨混合平衡",defEn:"balancing multiple audio tracks",ex:"混音师让所有乐器听起来协调。The mixer balances all instruments.",di:[{c:"混",e:"mix"},{c:"音",e:"sound"}]},
+        {cat:"composition",ch:"即兴",py:"jíxìng",en:"improvisation",def:"不经准备当场创作演奏",defEn:"creating and performing on the spot",ex:"爵士乐手擅长即兴演奏。Jazz musicians excel at improvisation.",di:[{c:"即",e:"immediate"},{c:"兴",e:"inspiration"}]}
+    ];
+
+    // BILINGUAL category labels
+    var catLabels = {
+        "all":"🎵 全部音乐 / All Music",
+        "performing":"🎭 表演艺术 / Performing Arts",
+        "crosstalk":"🎙️ 相声 / Crosstalk",
+        "theory":"🎼 音乐理论 / Music Theory",
+        "instruments-chinese":"🪕 中国乐器 / Chinese Instruments",
+        "instruments-western":"🎻 西洋乐器 / Western Instruments",
+        "vocal":"🎤 声乐 / Vocal Music",
+        "genres":"🎧 音乐类型 / Music Genres",
+        "professionals":"👥 音乐人 / Music Professionals",
+        "stage":"🎬 表演舞台 / Performance & Stage",
+        "industry":"💿 音乐产业 / Music Industry",
+        "composition":"📝 音乐创作 / Composition"
+    };
+
+    var categoryImages = {
+        "all":"images/music-all.png","performing":"images/music-performing.png",
+        "crosstalk":"images/music-crosstalk.png","theory":"images/music-theory.png",
+        "instruments-chinese":"images/music-instruments-chinese.png",
+        "instruments-western":"images/music-instruments-western.png",
+        "vocal":"images/music-vocal.png","genres":"images/music-genres.png",
+        "professionals":"images/music-professionals.png","stage":"images/music-stage.png",
+        "industry":"images/music-industry.png","composition":"images/music-composition.png"
+    };
+
+    var tbl=document.getElementById('dynamicTableContainer');
+    var gal=document.getElementById('puzzleGallery');
+    var imageSlot=document.getElementById('categoryImageSlot');
+    var imageLabel=document.getElementById('imageLabel');
+
+    function updateCategoryImage(cat) {
+        var imagePath = categoryImages[cat];
+        var label = catLabels[cat] || cat;
+        if (imagePath) {
+            var img = document.createElement('img');
+            img.src = imagePath; img.alt = label;
+            img.style.maxWidth = '100%'; img.style.maxHeight = '350px';
+            img.style.borderRadius = '1.5rem'; img.style.objectFit = 'contain';
+            img.onerror = function() {
+                imageSlot.innerHTML = '<span>🖼️ ' + label + ' — 图片未找到<br><small>Path: ' + imagePath + '</small></span>';
+            };
+            imageSlot.innerHTML = ''; imageSlot.appendChild(img);
+        } else {
+            imageSlot.innerHTML = '<span>🖼️ ' + label + ' — 图片位置 (PNG)</span>';
+        }
+        if(imageLabel) imageLabel.textContent = label;
+    }
+
+    function buildDiss(di,full){
+        if(!di||!di.length)return'';
+        var cn='<div class="dissect-line">🧩 中文：';
+        di.forEach(function(p,i){
+            if(i>0)cn+='<span class="plus-sign"> + </span>';
+            cn+='<span class="char-piece">'+p.c+' <small>('+(cnMap[p.c]||p.c)+')</small></span>';
+        });
+        cn+='<span class="arrow-sign"> = </span><span class="result-word">'+full+'</span></div>';
+        var en='<div class="dissect-line en-line">🔤 English: ';
+        di.forEach(function(p,i){
+            if(i>0)en+=' + ';
+            en+='<strong>'+p.c+'</strong> ('+p.e+')';
+        });
+        en+=' = <strong>'+full+'</strong></div>';
+        return '<div class="puzzle-box">'+cn+en+'</div>';
+    }
+
+    function render(cat){
+        var f=cat==='all'?dataset:dataset.filter(function(d){return d.cat===cat;});
+        if(!f.length){tbl.innerHTML='<p style="padding:2rem;">✨ 暂无数据 / No items yet</p>';return;}
+        var h='<div class="table-wrapper"><table><thead><tr><th>中文 & Pinyin</th><th>English</th><th>定义 / Definition & 例句</th></tr></thead><tbody>';
+        f.forEach(function(item){
+            h+='<tr><td class="chinese-cell">'+item.ch+'<span class="pinyin-sm">'+item.py+'</span></td><td class="english-name">'+item.en+'</td><td><span style="font-weight:600;">'+item.def+'</span><br><span style="color:#6b5080;">'+item.defEn+'</span><br><span class="example-text">📝 '+item.ex+'</span>'+(item.note?'<br><span class="note-text">💡 '+item.note+'</span>':'')+'</td></tr>';
+            if(item.di&&item.di.length)h+='<tr style="background:#f8f0ff;"><td colspan="3">'+buildDiss(item.di,item.ch)+'</td></tr>';
+        });
+        h+='</tbody></table></div>';tbl.innerHTML=h;
+    }
+
+    function renderGal(){
+        var ex=dataset.filter(function(d){return d.di&&d.di.length>=2;}).slice(0,12);
+        var h='';ex.forEach(function(item){h+='<div style="background:#f8f4fc;padding:0.6rem 1rem;border-radius:1.2rem;margin-bottom:0.4rem;">'+buildDiss(item.di,item.ch)+'</div>';});
+        gal.innerHTML=h||'<p>🔍 拆解更多词汇可见上方表格。</p>';
+    }
+
+    document.querySelectorAll('.cat-btn').forEach(function(btn){
+        btn.addEventListener('click',function(e){
+            document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active');});
+            e.currentTarget.classList.add('active');
+            var cat=e.currentTarget.dataset.category;
+            updateCategoryImage(cat); render(cat);
+        });
+    });
+
+    updateCategoryImage('all'); render('all'); renderGal();
+})();
+</script>
+</body>
+</html>
