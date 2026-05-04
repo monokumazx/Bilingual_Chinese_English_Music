@@ -97,12 +97,18 @@
         .section-title { font-size: 1.6rem; font-weight: 700; margin: 2rem 0 0.8rem; color: #4a2080; }
         hr { border: 1px dashed #c0a8d4; margin: 1.5rem 0 0.8rem; }
         footer { margin-top: 1.5rem; text-align: center; color: #6b5080; font-size: 0.85rem; }
+        @media (max-width: 768px) {
+            .category-nav { border-radius: 2rem; }
+            .cat-btn { padding: 0.4rem 0.7rem; font-size: 0.7rem; }
+            h1 { font-size: 1.8rem; }
+            h1 span { font-size: 1.3rem; }
+        }
     </style>
 </head>
 <body>
 <div class="main-container">
     <h1>🎵 音乐 Music <span>表演·乐器·理论</span></h1>
-    <div class="subtitle">🧩 中英对照 · 汉字拆解 · 全年龄段 · 220+ 词汇</div>
+    <div class="subtitle">🧩 中英对照 · 汉字拆解 · 全年龄段 · 250+ 词汇</div>
 
     <div class="image-slot" id="categoryImageSlot">
         <span>🖼️ <span id="imageLabel">全部音乐 / All Music</span> — 图片位置 (PNG)</span>
@@ -113,6 +119,7 @@
         <button class="cat-btn" data-category="performing">🎭 表演艺术 / Performing Arts</button>
         <button class="cat-btn" data-category="crosstalk">🎙️ 相声 / Crosstalk</button>
         <button class="cat-btn" data-category="theory">🎼 音乐理论 / Music Theory</button>
+        <button class="cat-btn" data-category="instrument-families">🎻 乐器家族 / Instrument Families</button>
         <button class="cat-btn" data-category="instruments-chinese">🪕 中国乐器 / Chinese Instruments</button>
         <button class="cat-btn" data-category="instruments-western">🎻 西洋乐器 / Western Instruments</button>
         <button class="cat-btn" data-category="vocal">🎤 声乐 / Vocal Music</button>
@@ -129,7 +136,7 @@
     <div class="section-title">🧩 汉字拆解 · Character Puzzle Gallery</div>
     <div id="puzzleGallery" style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.8rem;"></div>
 
-    <footer>🎵 双语音乐词汇 Bilingual Music Vocabulary · 相声 · 古琴 · 五线谱 · 交响乐 · 适合所有年龄 for all ages</footer>
+    <footer>🎵 双语音乐词汇 Bilingual Music Vocabulary · 相声 · 古琴 · 五线谱 · 交响乐团 · 适合所有年龄 for all ages</footer>
 </div>
 
 <script>
@@ -175,7 +182,11 @@
         "键":"键盘","盘":"盘面","竖":"竖立","簧":"簧片","木":"木材","铜":"铜质",
         "定":"定音","音":"声音","架":"架子","铃":"铃声","三角":"三角","响":"响声",
         "沙":"沙粒","锤":"锤子","碰":"碰撞","钟":"钟体","乐":"音乐","队":"队伍",
-        "协":"协作","鸣":"鸣响","即":"即刻","兴":"兴起","填":"填充","词":"词语"
+        "协":"协作","鸣":"鸣响","即":"即刻","兴":"兴起","填":"填充","词":"词语",
+        "室":"室内","内":"里面","乐":"音乐","团":"团体","家":"家族","族":"类别",
+        "器":"器具","键":"键盘","盘":"盘面","电":"电子","子":"后缀","吹":"吹奏",
+        "拉":"拉弦","弹":"弹拨","拨":"拨动","铜":"铜质","管":"管状","打":"打击",
+        "击":"敲击","弦乐":"弦乐","木管":"木管","铜管":"铜管","打击乐":"打击乐"
     };
 
     var dataset = [
@@ -233,6 +244,21 @@
         {cat:"theory",ch:"降号",py:"jiànghào",en:"flat",def:"降低半音",defEn:"lowers a note by a semitone",ex:"降号让音符降低半音。A flat lowers the note.",di:[{c:"降",e:"lower"},{c:"号",e:"sign"}]},
         {cat:"theory",ch:"和弦",py:"héxián",en:"chord",def:"三个或以上音同时发声",defEn:"three or more notes played together",ex:"C和弦由C、E、G组成。The C chord consists of C, E, and G.",di:[{c:"和",e:"together"},{c:"弦",e:"string"}]},
         {cat:"theory",ch:"音程",py:"yīnchéng",en:"interval",def:"两个音之间的高低距离",defEn:"the pitch distance between two notes",ex:"C到G的音程是五度。The interval from C to G is a fifth.",di:[{c:"音",e:"sound"},{c:"程",e:"distance"}]},
+        {cat:"theory",ch:"调性",py:"diàoxìng",en:"tonality",def:"音乐以某个音为中心的属性",defEn:"the property of music centered around a particular note",ex:"这首曲子是C大调的调性。This piece is in the key of C major.",di:[{c:"调",e:"key"},{c:"性",e:"nature"}]},
+
+        // ========== 🎻 乐器家族 / Instrument Families ==========
+        {cat:"instrument-families",ch:"乐器家族",py:"yuèqì jiāzú",en:"instrument families",def:"根据发声方式和结构对乐器进行的分类",defEn:"classification of instruments based on sound production and structure",ex:"交响乐团包含四大乐器家族。The symphony orchestra contains four instrument families.",di:[{c:"乐器",e:"instrument"},{c:"家族",e:"family"}],note:"四大乐器家族：弦乐、木管、铜管、打击乐。Four main families: strings, woodwinds, brass, percussion."},
+        {cat:"instrument-families",ch:"弦乐",py:"xiányuè",en:"strings",def:"通过弦的振动产生声音的乐器家族",defEn:"instruments with strings that produce sound through vibration",ex:"弦乐家族包括小提琴、大提琴等。The string family includes violin, cello, etc.",di:[{c:"弦",e:"string"},{c:"乐",e:"music"}],note:"发声方式：弹奏(plucking)、拉弦(bowing)、击弦(hitting)。"},
+        {cat:"instrument-families",ch:"弦乐器",py:"xiányuèqì",en:"string instruments",def:"以弦振动发声的乐器总称",defEn:"general term for instruments producing sound via vibrating strings",ex:"小提琴是弦乐器的代表。The violin represents string instruments.",di:[{c:"弦",e:"string"},{c:"乐器",e:"instrument"}]},
+        {cat:"instrument-families",ch:"木管乐器",py:"mùguǎn yuèqì",en:"woodwinds",def:"通过管内空气振动产生声音的乐器",defEn:"instruments where sound is produced by vibrating air within a tube",ex:"长笛和单簧管都属于木管乐器。Flute and clarinet are both woodwinds.",di:[{c:"木",e:"wood"},{c:"管",e:"tube"},{c:"乐器",e:"instrument"}],note:"发声：吹口簧、吹缝隙、吹双簧。Sound: blowing across edge, single reed, or double reed."},
+        {cat:"instrument-families",ch:"铜管乐器",py:"tóngguǎn yuèqì",en:"brass",def:"通过吹口振动嘴唇产生声音的乐器",defEn:"instruments producing sound by vibrating lips in a mouthpiece",ex:"小号和长号都是铜管乐器。Trumpet and trombone are brass instruments.",di:[{c:"铜",e:"brass/copper"},{c:"管",e:"tube"},{c:"乐器",e:"instrument"}],note:"发声方式：嘴唇在吹口中振动。Sound: lips vibrate in mouthpiece."},
+        {cat:"instrument-families",ch:"打击乐器",py:"dǎjī yuèqì",en:"percussion",def:"通过击打或使膜或实体材料振动产生声音",defEn:"instruments producing sound by striking or causing vibration in a membrane or solid material",ex:"鼓是打击乐器中最常见的。Drums are the most common percussion instruments.",di:[{c:"打击",e:"strike"},{c:"乐器",e:"instrument"}],note:"发声：敲击(hitting)、摇动(shaking)、摩擦(rubbing)等。"},
+        {cat:"instrument-families",ch:"键盘乐器",py:"jiànpán yuèqì",en:"keyboard instruments",def:"通过键盘触发声音的乐器",defEn:"instruments where sound is triggered by a keyboard",ex:"钢琴是最典型的键盘乐器。Piano is the most typical keyboard instrument.",di:[{c:"键盘",e:"keyboard"},{c:"乐器",e:"instrument"}],note:"包括钢琴、风琴、羽管键琴等。Includes piano, organ, harpsichord, etc."},
+        {cat:"instrument-families",ch:"弹拨乐器",py:"tánbō yuèqì",en:"plucked instruments",def:"用手指或拨子拨动琴弦发声的乐器",defEn:"instruments sounded by plucking strings with fingers or a plectrum",ex:"吉他和琵琶都是弹拨乐器。Guitar and pipa are both plucked instruments.",di:[{c:"弹拨",e:"pluck"},{c:"乐器",e:"instrument"}]},
+        {cat:"instrument-families",ch:"拉弦乐器",py:"lāxián yuèqì",en:"bowed instruments",def:"用弓摩擦琴弦发声的乐器",defEn:"instruments sounded by drawing a bow across strings",ex:"二胡和小提琴都是拉弦乐器。Erhu and violin are both bowed instruments.",di:[{c:"拉",e:"pull/draw"},{c:"弦",e:"string"},{c:"乐器",e:"instrument"}]},
+        {cat:"instrument-families",ch:"吹管乐器",py:"chuīguǎn yuèqì",en:"wind instruments",def:"通过吹气使管内空气振动发声",defEn:"instruments sounded by blowing air through a tube",ex:"笛子和箫都是吹管乐器。Dizi and xiao are both wind instruments.",di:[{c:"吹",e:"blow"},{c:"管",e:"tube"},{c:"乐器",e:"instrument"}]},
+        {cat:"instrument-families",ch:"电子乐器",py:"diànzǐ yuèqì",en:"electronic instruments",def:"通过电子电路产生或处理声音的乐器",defEn:"instruments that produce or process sound via electronic circuits",ex:"合成器是常见的电子乐器。Synthesizers are common electronic instruments.",di:[{c:"电子",e:"electronic"},{c:"乐器",e:"instrument"}]},
+        {cat:"instrument-families",ch:"交响乐团",py:"jiāoxiǎng yuètuán",en:"symphony orchestra",def:"包含弦乐、木管、铜管、打击乐四大乐器家族的大型乐团",defEn:"large ensemble containing all four instrument families: strings, woodwinds, brass, percussion",ex:"交响乐团通常有近百人。A symphony orchestra usually has nearly 100 musicians.",di:[{c:"交响",e:"symphony"},{c:"乐团",e:"orchestra"}],note:"四大乐器家族：弦乐(strings)、木管(woodwinds)、铜管(brass)、打击乐(percussion)。"},
 
         // ========== 🪕 中国乐器 / Chinese Instruments ==========
         {cat:"instruments-chinese",ch:"琴",py:"qín",en:"qin / guqin",def:"中国最古老的弹拨乐器，原只称琴",defEn:"the oldest Chinese plucked instrument, originally just called qin",ex:"古人以琴棋书画为修身之艺。The ancients cultivated themselves with qin, chess, calligraphy, and painting.",di:[{c:"琴",e:"qin"}],note:"古代独称琴，后因钢琴传入加古字以区分。Originally just called 琴; 古 was added to distinguish from piano."},
@@ -315,6 +341,10 @@
         {cat:"genres",ch:"交响乐",py:"jiāoxiǎngyuè",en:"symphony",def:"大型管弦乐队作品",defEn:"large orchestral work",ex:"交响乐的结构很复杂。A symphony has a complex structure.",di:[{c:"交响",e:"symphony"},{c:"乐",e:"music"}]},
         {cat:"genres",ch:"协奏曲",py:"xiézòuqǔ",en:"concerto",def:"独奏乐器与乐队合作的乐曲",defEn:"a piece featuring a solo instrument with orchestra",ex:"钢琴协奏曲展示了独奏家的技巧。A piano concerto showcases the soloist.",di:[{c:"协奏",e:"collaborative"},{c:"曲",e:"piece"}]},
         {cat:"genres",ch:"奏鸣曲",py:"zòumíngqǔ",en:"sonata",def:"由几个乐章组成的器乐曲",defEn:"instrumental piece with several movements",ex:"月光奏鸣曲是贝多芬的代表作。Moonlight Sonata is Beethoven's masterpiece.",di:[{c:"奏鸣",e:"sonata"},{c:"曲",e:"piece"}]},
+        {cat:"genres",ch:"管弦乐",py:"guǎnxiányuè",en:"orchestral music",def:"由管弦乐队演奏的音乐",defEn:"music performed by an orchestra",ex:"管弦乐通常包含弦乐、木管、铜管和打击乐四个部分。Orchestral music usually has four sections.",di:[{c:"管",e:"wind"},{c:"弦",e:"string"},{c:"乐",e:"music"}]},
+        {cat:"genres",ch:"室内乐",py:"shìnèiyuè",en:"chamber music",def:"小规模合奏音乐，每声部由一人演奏",defEn:"small ensemble music, one player per part",ex:"弦乐四重奏是最常见的室内乐形式。String quartet is the most common chamber music form.",di:[{c:"室内",e:"indoor/chamber"},{c:"乐",e:"music"}]},
+        {cat:"genres",ch:"独奏",py:"dúzòu",en:"solo",def:"由单一乐器演奏的音乐",defEn:"music performed by a single instrument",ex:"钢琴独奏会非常受欢迎。Piano recitals are very popular.",di:[{c:"独",e:"alone"},{c:"奏",e:"play"}]},
+        {cat:"genres",ch:"合奏",py:"hézòu",en:"ensemble",def:"多人多乐器一起演奏",defEn:"multiple people playing multiple instruments together",ex:"民乐合奏展现了丰富的音色。Folk ensemble showcases rich timbres.",di:[{c:"合",e:"together"},{c:"奏",e:"play"}]},
 
         // ========== 👥 音乐人 / Music Professionals ==========
         {cat:"professionals",ch:"音乐家",py:"yīnyuèjiā",en:"musician",def:"从事音乐创作或表演的人",defEn:"person engaged in music creation or performance",ex:"贝多芬是伟大的音乐家。Beethoven was a great musician.",di:[{c:"音乐",e:"music"},{c:"家",e:"expert"}]},
@@ -344,12 +374,12 @@
         {cat:"composition",ch:"即兴",py:"jíxìng",en:"improvisation",def:"不经准备当场创作演奏",defEn:"creating and performing on the spot",ex:"爵士乐手擅长即兴演奏。Jazz musicians excel at improvisation.",di:[{c:"即",e:"immediate"},{c:"兴",e:"inspiration"}]}
     ];
 
-    // BILINGUAL category labels
     var catLabels = {
         "all":"🎵 全部音乐 / All Music",
         "performing":"🎭 表演艺术 / Performing Arts",
         "crosstalk":"🎙️ 相声 / Crosstalk",
         "theory":"🎼 音乐理论 / Music Theory",
+        "instrument-families":"🎻 乐器家族 / Instrument Families",
         "instruments-chinese":"🪕 中国乐器 / Chinese Instruments",
         "instruments-western":"🎻 西洋乐器 / Western Instruments",
         "vocal":"🎤 声乐 / Vocal Music",
@@ -363,6 +393,7 @@
     var categoryImages = {
         "all":"images/music-all.png","performing":"images/music-performing.png",
         "crosstalk":"images/music-crosstalk.png","theory":"images/music-theory.png",
+        "instrument-families":"images/music-instrument-families.png",
         "instruments-chinese":"images/music-instruments-chinese.png",
         "instruments-western":"images/music-instruments-western.png",
         "vocal":"images/music-vocal.png","genres":"images/music-genres.png",
